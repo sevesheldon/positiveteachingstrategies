@@ -1,0 +1,5 @@
+<div class="esu-extra-info-box">
+<img src="<?php echo plugins_url();?>/esu-extras/esu-zeup/esu_extra.png" width="240" height="154" alt="Extra Uploader">
+<h4 css="css-extra-title"><a href="admin.php?page=esu_upload_pg">Easy Sign Up Extra Uploader</a></h4>
+<p class="css-extra-body">This is the uploader for the Easy Sign Up Extras</p>
+</div>

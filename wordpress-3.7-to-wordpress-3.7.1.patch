@@ -1,0 +1,597 @@
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/about.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/about.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/about.php	2013-10-23 14:54:18.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/about.php	2013-10-29 15:08:08.000000000 -0500
+***************
+*** 21,27 ****
+  
+  <h1><?php printf( __( 'Welcome to WordPress %s' ), $display_version ); ?></h1>
+  
+! <div class="about-text"><?php printf( __( 'Thank you for updating to WordPress 3.7! You might not notice a thing, and we&#8217;re okay with that.' ), $display_version ); ?></div>
+  
+  <div class="wp-badge"><?php printf( __( 'Version %s' ), $display_version ); ?></div>
+  
+--- 21,27 ----
+  
+  <h1><?php printf( __( 'Welcome to WordPress %s' ), $display_version ); ?></h1>
+  
+! <div class="about-text"><?php echo str_replace( '3.7', $display_version, __( 'Thank you for updating to WordPress 3.7! You might not notice a thing, and we&#8217;re okay with that.' ) ); ?></div>
+  
+  <div class="wp-badge"><?php printf( __( 'Version %s' ), $display_version ); ?></div>
+  
+***************
+*** 35,40 ****
+--- 35,48 ----
+  	</a>
+  </h2>
+  
++ <div class="changelog point-releases">
++ 	<h3><?php echo _n( 'Maintenance Release', 'Maintenance Releases', 1 ); ?></h3>
++ 	<p><?php printf( _n( '<strong>Version %1$s</strong> addressed %2$s bug.',
++ 		'<strong>Version %1$s</strong> addressed %2$s bugs.', 11 ), '3.7.1', number_format_i18n( 11 ) ); ?>
++ 		<?php printf( __( 'For more information, see <a href="%s">the release notes</a>.' ), 'http://codex.wordpress.org/Version_3.7.1' ); ?>
++  	</p>
++ </div>
++ 
+  <div class="changelog">
+  	<h3><?php _e( 'Background Updates' ); ?></h3>
+  
+***************
+*** 61,67 ****
+  			);
+  			require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+  			$updater = new WP_Automatic_Updater;
+! 			$can_auto_update = wp_http_supports( 'ssl' ) && $updater->should_update( 'core', $future_minor_update, ABSPATH );
+  
+  			if ( $can_auto_update ) {
+  				echo '<p class="about-auto-update cool">' . __( 'This site <strong>is</strong> able to apply these updates automatically. Cool!' ). '</p>';
+--- 69,75 ----
+  			);
+  			require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+  			$updater = new WP_Automatic_Updater;
+! 			$can_auto_update = wp_http_supports( array( 'ssl' ) ) && $updater->should_update( 'core', $future_minor_update, ABSPATH );
+  
+  			if ( $can_auto_update ) {
+  				echo '<p class="about-auto-update cool">' . __( 'This site <strong>is</strong> able to apply these updates automatically. Cool!' ). '</p>';
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/credits.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/credits.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/credits.php	2013-10-17 15:17:09.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/credits.php	2013-10-25 22:07:09.000000000 -0500
+***************
+*** 81,87 ****
+  
+  <h1><?php printf( __( 'Welcome to WordPress %s' ), $display_version ); ?></h1>
+  
+! <div class="about-text"><?php printf( __( 'Thank you for updating to WordPress 3.7! You might not notice a thing, and we&#8217;re okay with that.' ), $display_version ); ?></div>
+  
+  <div class="wp-badge"><?php printf( __( 'Version %s' ), $display_version ); ?></div>
+  
+--- 81,87 ----
+  
+  <h1><?php printf( __( 'Welcome to WordPress %s' ), $display_version ); ?></h1>
+  
+! <div class="about-text"><?php echo str_replace( '3.7', $display_version, __( 'Thank you for updating to WordPress 3.7! You might not notice a thing, and we&#8217;re okay with that.' ) ); ?></div>
+  
+  <div class="wp-badge"><?php printf( __( 'Version %s' ), $display_version ); ?></div>
+  
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/freedoms.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/freedoms.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/freedoms.php	2013-10-17 15:17:09.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/freedoms.php	2013-10-25 22:07:09.000000000 -0500
+***************
+*** 19,25 ****
+  
+  <h1><?php printf( __( 'Welcome to WordPress %s' ), $display_version ); ?></h1>
+  
+! <div class="about-text"><?php printf( __( 'Thank you for updating to WordPress 3.7! You might not notice a thing, and we&#8217;re okay with that.' ), $display_version ); ?></div>
+  
+  <div class="wp-badge"><?php printf( __( 'Version %s' ), $display_version ); ?></div>
+  
+--- 19,25 ----
+  
+  <h1><?php printf( __( 'Welcome to WordPress %s' ), $display_version ); ?></h1>
+  
+! <div class="about-text"><?php echo str_replace( '3.7', $display_version, __( 'Thank you for updating to WordPress 3.7! You might not notice a thing, and we&#8217;re okay with that.' ) ); ?></div>
+  
+  <div class="wp-badge"><?php printf( __( 'Version %s' ), $display_version ); ?></div>
+  
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/includes/class-wp-upgrader.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/includes/class-wp-upgrader.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/includes/class-wp-upgrader.php	2013-10-23 21:00:09.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/includes/class-wp-upgrader.php	2013-10-29 12:15:10.000000000 -0500
+***************
+*** 2135,2141 ****
+  		// If the update transient is empty, use the update we just performed
+  		if ( ! $next_user_core_update )
+  			$next_user_core_update = $core_update;
+! 		$newer_version_available = ( 'upgrade' == $next_user_core_update->response && version_compare( $next_user_core_update->version, $core_update, '>' ) );
+  
+  		/**
+  		 * Filter whether to send an email following an automatic background core update.
+--- 2135,2141 ----
+  		// If the update transient is empty, use the update we just performed
+  		if ( ! $next_user_core_update )
+  			$next_user_core_update = $core_update;
+! 		$newer_version_available = ( 'upgrade' == $next_user_core_update->response && version_compare( $next_user_core_update->version, $core_update->version, '>' ) );
+  
+  		/**
+  		 * Filter whether to send an email following an automatic background core update.
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/includes/plugin-install.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/includes/plugin-install.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/includes/plugin-install.php	2013-10-05 05:59:12.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/includes/plugin-install.php	2013-10-27 16:10:09.000000000 -0500
+***************
+*** 60,76 ****
+  	$res = apply_filters( 'plugins_api', false, $action, $args );
+  
+  	if ( false === $res ) {
+! 		$url = 'http://api.wordpress.org/plugins/info/1.0/';
+! 		if ( wp_http_supports( array( 'ssl' ) ) )
+  			$url = set_url_scheme( $url, 'https' );
+  
+! 		$request = wp_remote_post( $url, array(
+  			'timeout' => 15,
+  			'body' => array(
+  				'action' => $action,
+  				'request' => serialize( $args )
+  			)
+! 		) );
+  
+  		if ( is_wp_error($request) ) {
+  			$res = new WP_Error('plugins_api_failed', __( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="http://wordpress.org/support/">support forums</a>.' ), $request->get_error_message() );
+--- 60,82 ----
+  	$res = apply_filters( 'plugins_api', false, $action, $args );
+  
+  	if ( false === $res ) {
+! 		$url = $http_url = 'http://api.wordpress.org/plugins/info/1.0/';
+! 		if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
+  			$url = set_url_scheme( $url, 'https' );
+  
+! 		$args = array(
+  			'timeout' => 15,
+  			'body' => array(
+  				'action' => $action,
+  				'request' => serialize( $args )
+  			)
+! 		);
+! 		$request = wp_remote_post( $url, $args );
+! 
+! 		if ( $ssl && is_wp_error( $request ) ) {
+! 			trigger_error( __( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="http://wordpress.org/support/">support forums</a>.' ) . ' ' . '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE );
+! 			$request = wp_remote_post( $http_url, $args );
+! 		}
+  
+  		if ( is_wp_error($request) ) {
+  			$res = new WP_Error('plugins_api_failed', __( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="http://wordpress.org/support/">support forums</a>.' ), $request->get_error_message() );
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/includes/theme.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/includes/theme.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/includes/theme.php	2013-09-09 02:54:11.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/includes/theme.php	2013-10-27 16:10:09.000000000 -0500
+***************
+*** 282,297 ****
+  	$res = apply_filters('themes_api', false, $action, $args); //NOTE: Allows a theme to completely override the builtin WordPress.org API.
+  
+  	if ( ! $res ) {
+! 		$url = 'http://api.wordpress.org/themes/info/1.0/';
+! 		if ( wp_http_supports( array( 'ssl' ) ) )
+  			$url = set_url_scheme( $url, 'https' );
+  
+! 		$request = wp_remote_post( $url, array(
+  			'body' => array(
+  				'action' => $action,
+  				'request' => serialize( $args )
+  			)
+! 		) );
+  
+  		if ( is_wp_error($request) ) {
+  			$res = new WP_Error('themes_api_failed', __( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="http://wordpress.org/support/">support forums</a>.' ), $request->get_error_message() );
+--- 282,303 ----
+  	$res = apply_filters('themes_api', false, $action, $args); //NOTE: Allows a theme to completely override the builtin WordPress.org API.
+  
+  	if ( ! $res ) {
+! 		$url = $http_url = 'http://api.wordpress.org/themes/info/1.0/';
+! 		if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
+  			$url = set_url_scheme( $url, 'https' );
+  
+! 		$args = array(
+  			'body' => array(
+  				'action' => $action,
+  				'request' => serialize( $args )
+  			)
+! 		);
+! 		$request = wp_remote_post( $url, $args );
+! 
+! 		if ( $ssl && is_wp_error( $request ) ) {
+! 			trigger_error( __( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="http://wordpress.org/support/">support forums</a>.' ) . ' ' . '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE );
+! 			$request = wp_remote_post( $http_url, $args );
+! 		}
+  
+  		if ( is_wp_error($request) ) {
+  			$res = new WP_Error('themes_api_failed', __( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="http://wordpress.org/support/">support forums</a>.' ), $request->get_error_message() );
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/includes/update-core.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/includes/update-core.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/includes/update-core.php	2013-10-24 14:29:10.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/includes/update-core.php	2013-10-25 15:17:09.000000000 -0500
+***************
+*** 750,756 ****
+  	// Check to make sure everything copied correctly, ignoring the contents of wp-content
+  	$skip = array( 'wp-content' );
+  	$failed = array();
+! 	if ( is_array( $checksums ) ) {
+  		foreach ( $checksums as $file => $checksum ) {
+  			if ( 0 === strpos( $file, 'wp-content' ) )
+  				continue;
+--- 750,756 ----
+  	// Check to make sure everything copied correctly, ignoring the contents of wp-content
+  	$skip = array( 'wp-content' );
+  	$failed = array();
+! 	if ( isset( $checksums ) && is_array( $checksums ) ) {
+  		foreach ( $checksums as $file => $checksum ) {
+  			if ( 0 === strpos( $file, 'wp-content' ) )
+  				continue;
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/includes/update.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/includes/update.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/includes/update.php	2013-10-22 16:15:09.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/includes/update.php	2013-10-27 16:10:09.000000000 -0500
+***************
+*** 103,111 ****
+  function get_core_checksums( $version, $locale ) {
+  	$return = array();
+  
+! 	$url = 'http://api.wordpress.org/core/checksums/1.0/?' . http_build_query( compact( 'version', 'locale' ), null, '&' );
+  
+! 	if ( wp_http_supports( array( 'ssl' ) ) )
+  		$url = set_url_scheme( $url, 'https' );
+  
+  	$options = array(
+--- 103,111 ----
+  function get_core_checksums( $version, $locale ) {
+  	$return = array();
+  
+! 	$url = $http_url = 'http://api.wordpress.org/core/checksums/1.0/?' . http_build_query( compact( 'version', 'locale' ), null, '&' );
+  
+! 	if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
+  		$url = set_url_scheme( $url, 'https' );
+  
+  	$options = array(
+***************
+*** 113,118 ****
+--- 113,122 ----
+  	);
+  
+  	$response = wp_remote_get( $url, $options );
++ 	if ( $ssl && is_wp_error( $response ) ) {
++ 		trigger_error( __( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="http://wordpress.org/support/">support forums</a>.' ) . ' ' . '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE );
++ 		$response = wp_remote_get( $http_url, $options );
++ 	}
+  
+  	if ( is_wp_error( $response ) || 200 != wp_remote_retrieve_response_code( $response ) )
+  		return false;
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/update-core.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/update-core.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-admin/update-core.php	2013-10-23 09:40:10.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-admin/update-core.php	2013-10-27 16:10:09.000000000 -0500
+***************
+*** 146,152 ****
+  		echo '<h3>';
+  		_e('You have the latest version of WordPress.');
+  
+! 		if ( wp_http_supports( 'ssl' ) ) {
+  			require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+  			$upgrader = new WP_Automatic_Updater;
+  			$future_minor_update = (object) array(
+--- 146,152 ----
+  		echo '<h3>';
+  		_e('You have the latest version of WordPress.');
+  
+! 		if ( wp_http_supports( array( 'ssl' ) ) ) {
+  			require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+  			$upgrader = new WP_Automatic_Updater;
+  			$future_minor_update = (object) array(
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/category-template.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/category-template.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/category-template.php	2013-10-02 14:59:10.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/category-template.php	2013-10-25 21:55:08.000000000 -0500
+***************
+*** 232,237 ****
+--- 232,240 ----
+   * @return bool True if the current post is in any of the given categories.
+   */
+  function in_category( $category, $post = null ) {
++ 	if ( empty( $category ) )
++ 		return false;
++ 
+  	return has_category( $category, $post );
+  }
+  
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/default-constants.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/default-constants.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/default-constants.php	2013-10-02 22:46:09.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/default-constants.php	2013-10-29 15:08:08.000000000 -0500
+***************
+*** 42,51 ****
+  	if ( function_exists( 'memory_get_usage' ) ) {
+  		$current_limit = @ini_get( 'memory_limit' );
+  		$current_limit_int = intval( $current_limit );
+! 		if ( false !== stripos( $current_limit, 'G' ) )
+  			$current_limit_int *= 1024;
+  		$wp_limit_int = intval( WP_MEMORY_LIMIT );
+! 		if ( false !== stripos( WP_MEMORY_LIMIT, 'G' ) )
+  			$wp_limit_int *= 1024;
+  
+  		if ( -1 != $current_limit && ( -1 == WP_MEMORY_LIMIT || $current_limit_int < $wp_limit_int ) )
+--- 42,51 ----
+  	if ( function_exists( 'memory_get_usage' ) ) {
+  		$current_limit = @ini_get( 'memory_limit' );
+  		$current_limit_int = intval( $current_limit );
+! 		if ( false !== strpos( $current_limit, 'G' ) )
+  			$current_limit_int *= 1024;
+  		$wp_limit_int = intval( WP_MEMORY_LIMIT );
+! 		if ( false !== strpos( WP_MEMORY_LIMIT, 'G' ) )
+  			$wp_limit_int *= 1024;
+  
+  		if ( -1 != $current_limit && ( -1 == WP_MEMORY_LIMIT || $current_limit_int < $wp_limit_int ) )
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/js/tinymce/plugins/wpeditimage/editor_plugin_src.js /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/js/tinymce/plugins/wpeditimage/editor_plugin_src.js
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/js/tinymce/plugins/wpeditimage/editor_plugin_src.js	2012-11-26 19:31:51.000000000 -0600
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/js/tinymce/plugins/wpeditimage/editor_plugin_src.js	2013-10-25 21:52:09.000000000 -0500
+***************
+*** 160,166 ****
+  				if ( cls == 'aligncenter' )
+  					div_cls += ' mceIEcenter';
+  
+! 				return '<div class="'+div_cls+'"><dl id="'+id+'" class="wp-caption '+cls+'" style="width: '+( 10 + parseInt(w) )+
+  				'px"><dt class="wp-caption-dt">'+img+'</dt><dd class="wp-caption-dd">'+cap+'</dd></dl></div>';
+  			});
+  		},
+--- 160,167 ----
+  				if ( cls == 'aligncenter' )
+  					div_cls += ' mceIEcenter';
+  
+! 				w = parseInt( w, 10 ) + 10;
+! 				return '<div class="'+div_cls+'"><dl id="'+id+'" class="wp-caption '+cls+'" style="width: '+w+
+  				'px"><dt class="wp-caption-dt">'+img+'</dt><dd class="wp-caption-dd">'+cap+'</dd></dl></div>';
+  			});
+  		},
+Binary files /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/js/tinymce/wp-tinymce.js.gz and /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/js/tinymce/wp-tinymce.js.gz differ
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/l10n.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/l10n.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/l10n.php	2013-09-30 14:47:12.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/l10n.php	2013-10-29 15:08:08.000000000 -0500
+***************
+*** 797,805 ****
+  		'Project-Id-Version' => '"Project-Id-Version',
+  		'X-Generator'        => '"X-Generator',
+  	) );
+! 	foreach ( $headers as &$header ) {
+  		// Remove possible contextual '\n' and closing double quote.
+! 		$header = preg_replace( '~(\\\n)?"$~', '', $header );
+  	}
+  	return $headers;
+  }
+--- 797,805 ----
+  		'Project-Id-Version' => '"Project-Id-Version',
+  		'X-Generator'        => '"X-Generator',
+  	) );
+! 	foreach ( $headers as $header => $value ) {
+  		// Remove possible contextual '\n' and closing double quote.
+! 		$headers[ $header ] = preg_replace( '~(\\\n)?"$~', '', $value );
+  	}
+  	return $headers;
+  }
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/option.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/option.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/option.php	2013-10-02 15:43:10.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/option.php	2013-10-25 21:58:09.000000000 -0500
+***************
+*** 236,241 ****
+--- 236,242 ----
+  
+  	$serialized_value = maybe_serialize( $value );
+  
++ 	do_action( 'update_option', $option, $old_value, $value );
+  	$result = $wpdb->update( $wpdb->options, array( 'option_value' => $serialized_value ), array( 'option_name' => $option ) );
+  	if ( ! $result )
+  		return false;
+***************
+*** 246,252 ****
+  		wp_cache_set( 'notoptions', $notoptions, 'options' );
+  	}
+  
+- 	do_action( 'update_option', $option, $old_value, $value );
+  	if ( ! defined( 'WP_INSTALLING' ) ) {
+  		$alloptions = wp_load_alloptions();
+  		if ( isset( $alloptions[$option] ) ) {
+--- 247,252 ----
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/post.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/post.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/post.php	2013-10-22 12:22:11.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/post.php	2013-10-28 20:50:08.000000000 -0500
+***************
+*** 3706,3712 ****
+  	if ( !in_array( $post_type, $hierarchical_post_types ) )
+  		return $pages;
+  
+! 	if ( $parent && ! $child_of )
+  		$hierarchical = false;
+  
+  	// Make sure we have a valid post status
+--- 3706,3712 ----
+  	if ( !in_array( $post_type, $hierarchical_post_types ) )
+  		return $pages;
+  
+! 	if ( $parent > 0 && ! $child_of )
+  		$hierarchical = false;
+  
+  	// Make sure we have a valid post status
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/query.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/query.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/query.php	2013-10-23 15:58:09.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/query.php	2013-10-27 15:53:09.000000000 -0500
+***************
+*** 1986,1993 ****
+  			else
+  				$term = trim( $term, "\"' " );
+  
+! 			// \p{L} matches a single letter that is not a Chinese, Japanese, etc. char
+! 			if ( ! $term || preg_match( '/^\p{L}$/u', $term ) )
+  				continue;
+  
+  			if ( in_array( call_user_func( $strtolower, $term ), $stopwords, true ) )
+--- 1986,1993 ----
+  			else
+  				$term = trim( $term, "\"' " );
+  
+! 			// Avoid single A-Z.
+! 			if ( ! $term || ( 1 === strlen( $term ) && preg_match( '/^[a-z]$/i', $term ) ) )
+  				continue;
+  
+  			if ( in_array( call_user_func( $strtolower, $term ), $stopwords, true ) )
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/taxonomy.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/taxonomy.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/taxonomy.php	2013-09-23 21:54:08.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/taxonomy.php	2013-10-26 14:01:09.000000000 -0500
+***************
+*** 1362,1368 ****
+  	$exclusions = '';
+  	if ( ! empty( $exclude_tree ) ) {
+  		$exclude_tree = wp_parse_id_list( $exclude_tree );
+! 		$excluded_children = array();
+  		foreach ( $exclude_tree as $extrunk ) {
+  			$excluded_children = array_merge(
+  				$excluded_children,
+--- 1362,1368 ----
+  	$exclusions = '';
+  	if ( ! empty( $exclude_tree ) ) {
+  		$exclude_tree = wp_parse_id_list( $exclude_tree );
+! 		$excluded_children = $exclude_tree;
+  		foreach ( $exclude_tree as $extrunk ) {
+  			$excluded_children = array_merge(
+  				$excluded_children,
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/update.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/update.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/update.php	2013-10-23 09:40:10.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/update.php	2013-10-27 16:10:09.000000000 -0500
+***************
+*** 93,100 ****
+  	if ( $extra_stats )
+  		$post_body = array_merge( $post_body, $extra_stats );
+  
+! 	$url = 'http://api.wordpress.org/core/version-check/1.7/?' . http_build_query( $query, null, '&' );
+! 	if ( wp_http_supports( array( 'ssl' ) ) )
+  		$url = set_url_scheme( $url, 'https' );
+  
+  	$options = array(
+--- 93,100 ----
+  	if ( $extra_stats )
+  		$post_body = array_merge( $post_body, $extra_stats );
+  
+! 	$url = $http_url = 'http://api.wordpress.org/core/version-check/1.7/?' . http_build_query( $query, null, '&' );
+! 	if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
+  		$url = set_url_scheme( $url, 'https' );
+  
+  	$options = array(
+***************
+*** 108,113 ****
+--- 108,117 ----
+  	);
+  
+  	$response = wp_remote_post( $url, $options );
++ 	if ( $ssl && is_wp_error( $response ) ) {
++ 		trigger_error( __( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="http://wordpress.org/support/">support forums</a>.' ) . ' ' . '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE );
++ 		$response = wp_remote_post( $http_url, $options );
++ 	}
+  
+  	if ( is_wp_error( $response ) || 200 != wp_remote_retrieve_response_code( $response ) )
+  		return false;
+***************
+*** 246,256 ****
+  		'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' )
+  	);
+  
+! 	$url = 'http://api.wordpress.org/plugins/update-check/1.1/';
+! 	if ( wp_http_supports( array( 'ssl' ) ) )
+  		$url = set_url_scheme( $url, 'https' );
+  
+  	$raw_response = wp_remote_post( $url, $options );
+  
+  	if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) )
+  		return false;
+--- 250,264 ----
+  		'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' )
+  	);
+  
+! 	$url = $http_url = 'http://api.wordpress.org/plugins/update-check/1.1/';
+! 	if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
+  		$url = set_url_scheme( $url, 'https' );
+  
+  	$raw_response = wp_remote_post( $url, $options );
++ 	if ( $ssl && is_wp_error( $raw_response ) ) {
++ 		trigger_error( __( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="http://wordpress.org/support/">support forums</a>.' ) . ' ' . '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE );
++ 		$raw_response = wp_remote_post( $http_url, $options );
++ 	}
+  
+  	if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) )
+  		return false;
+***************
+*** 382,392 ****
+  		'user-agent'	=> 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' )
+  	);
+  
+! 	$url = 'http://api.wordpress.org/themes/update-check/1.1/';
+! 	if ( wp_http_supports( array( 'ssl' ) ) )
+  		$url = set_url_scheme( $url, 'https' );
+  
+  	$raw_response = wp_remote_post( $url, $options );
+  
+  	if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) )
+  		return false;
+--- 390,404 ----
+  		'user-agent'	=> 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' )
+  	);
+  
+! 	$url = $http_url = 'http://api.wordpress.org/themes/update-check/1.1/';
+! 	if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
+  		$url = set_url_scheme( $url, 'https' );
+  
+  	$raw_response = wp_remote_post( $url, $options );
++ 	if ( $ssl && is_wp_error( $raw_response ) ) {
++ 		trigger_error( __( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="http://wordpress.org/support/">support forums</a>.' ) . ' ' . '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)', headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE );
++ 		$raw_response = wp_remote_post( $http_url, $options );
++ 	}
+  
+  	if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) )
+  		return false;
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/user.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/user.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/user.php	2013-10-06 06:29:11.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/user.php	2013-10-25 22:22:09.000000000 -0500
+***************
+*** 212,217 ****
+--- 212,219 ----
+   * @return int The current user's ID
+   */
+  function get_current_user_id() {
++ 	if ( ! function_exists( 'wp_get_current_user' ) )
++ 		return 0;
+  	$user = wp_get_current_user();
+  	return ( isset( $user->ID ) ? (int) $user->ID : 0 );
+  }
+diff -crBPN --exclude=wordpress.sql --exclude=wp-cache-config.php --exclude=1.html --exclude=2.html --exclude=wp-config.php --exclude=wordpress.sql --exclude=.htaccess-dist --exclude=wp-cache-config.php --exclude=editor_plugin.js --exclude=jetpack --exclude=.files.list --exclude=wordpress-3.7.1.pl /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/version.php /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/version.php
+*** /home/packages/code/qi/SOURCES/wordpress-3.7/wp-includes/version.php	2013-10-24 14:36:09.000000000 -0500
+--- /home/packages/code/qi/SOURCES/wordpress-3.7.1/wp-includes/version.php	2013-10-29 12:20:08.000000000 -0500
+***************
+*** 4,10 ****
+   *
+   * @global string $wp_version
+   */
+! $wp_version = '3.7';
+  
+  /**
+   * Holds the WordPress DB revision, increments when changes are made to the WordPress DB schema.
+--- 4,10 ----
+   *
+   * @global string $wp_version
+   */
+! $wp_version = '3.7.1';
+  
+  /**
+   * Holds the WordPress DB revision, increments when changes are made to the WordPress DB schema.
+***************
+*** 18,24 ****
+   *
+   * @global string $tinymce_version
+   */
+! $tinymce_version = '359-20131018';
+  
+  /**
+   * Holds the required PHP version
+--- 18,24 ----
+   *
+   * @global string $tinymce_version
+   */
+! $tinymce_version = '359-20131026';
+  
+  /**
+   * Holds the required PHP version

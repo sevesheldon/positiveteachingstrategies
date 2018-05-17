@@ -1,0 +1,135 @@
+.mabstyle-pink .mab-wrap{ padding: 15px; }
+
+.mabstyle-pink.magic-action-box{
+	background: #E7316A;
+	background: -moz-linear-gradient(top,  #f16390 0%, #e7316a 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f16390), color-stop(100%,#e7316a));
+	background: -webkit-linear-gradient(top,  #f16390 0%,#e7316a 100%);
+	background: -o-linear-gradient(top,  #f16390 0%,#e7316a 100%);
+	background: -ms-linear-gradient(top,  #f16390 0%,#e7316a 100%);
+	background: linear-gradient(top,  #f16390 0%,#e7316a 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f16390', endColorstr='#e7316a',GradientType=0 );
+	border: 3px solid #CC0F49;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	color: #fff !important;
+	font-size: 14px !important;
+	line-height: 1.3 !important;
+	margin: 20px 0;
+	text-shadow: 0 0 3px #8F002C;
+}
+
+.mabstyle-pink .mab-aside{
+	position: relative;
+	z-index: 8;
+}
+
+.mabstyle-pink .mab-aside-right .mab-aside{
+	float: right;
+	margin-left: 15px;
+}
+
+.mabstyle-pink .mab-aside-left .mab-aside{
+	float: left;
+	margin-right: 15px;
+}
+
+.mabstyle-pink .mab-aside-top .mab-aside{
+	display: block;
+	margin-bottom: 10px;
+	text-align: center;
+	width: 100%;
+}
+
+
+/* Content */
+.mabstyle-pink .mab-content{
+	font-size: 13px !important;
+	position: relative;
+	z-index: 10;
+}
+
+.mabstyle-pink.magic-action-box .mab-heading{
+	clear: none;
+	font-size: 170% !important;
+	font-weight: bold !important;
+	letter-spacing: 0 !important;
+	line-height: 1.4 !important;
+	margin: 0 0 7px !important;
+	text-transform: none !important;
+}
+
+.mabstyle-pink.magic-action-box .mab-subheading{
+	clear: none;
+	font-size: 120% !important;
+	font-weight: bold !important;
+	line-height: 1.4 !important;
+	margin: 0 0 10px !important;
+}
+
+.mabstyle-pink.magic-action-box .mab-main-copy{
+}
+
+.mabstyle-pink.magic-action-box .mab-secondary-copy{
+
+}
+
+/* Form */
+.mabstyle-pink.magic-action-box form{
+	margin: 10px 0;
+	overflow: hidden;
+}
+
+.mabstyle-pink.magic-action-box form .mab-field{
+	display: inline-block;
+	margin: 0 10px 10px 0 !important;
+	width: 46%;
+}
+
+.mabstyle-pink.magic-action-box form .mab-field label{
+	display: block;
+	font-size: 90% !important;
+}
+
+.mabstyle-pink.magic-action-box form .mab-field input, .mabstyle-pink.magic-action-box form .mab-field textarea{
+	border: 2px solid #CC0F49 !important;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	/*box-shadow: 0 0 3px #8F002C;*/
+	color: #AA0538 !important;
+	font-size: 100%;
+	margin: 0 !important;
+	padding: 3px 10px !important;
+	width: 90% !important;
+}
+
+.mabstyle-pink.magic-action-box form .mab-field input:focus, .mabstyle-pink.magic-action-box form .mab-field textarea:focus{
+	color: #111 !important;
+}
+
+.mabstyle-pink.magic-action-box .mab-main-action-wrap  form input[type="submit"]{
+	background: #FFEA9C ;
+	background: url(images/gradient-buttons-sprite.png) repeat-x 0 -152px;
+	border: 2px solid #CC0F49;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	color: #B20D40;
+	font-size: 100%;
+	padding: 3px 13px;
+	text-transform: none
+}
+
+.mabstyle-pink.magic-action-box mab-main-action-wrap  form input[type="submit"]:hover, .mabstyle-pink.magic-action-box form input[type="submit"]:focus{
+	background: #FFE37D;
+}
+
+.mab-wysija-msg{ margin: 6px 0; }
+.mab-wysija-msg .allmsgs blink{ padding-left: 24px; background: transparent url('images/loading.gif') no-repeat left center; display: block;}
+.mab-wysija-msg .allmsgs{ padding: 10px; }
+.mab-wysija-msg .allmsgs ul{ margin: 0 0 0 16px !important;}
+.mab-wysija-msg .allmsgs .updated{ margin: 10px 0; padding: 8px 8px 8px 30px; background: #BCE7FD url('images/small-notification.jpg') no-repeat 2% 50%; color: #000; text-shadow: none; border: 1px solid #5AC4F4; display: block; }
+.mab-wysija-msg .allmsgs .xdetailed-errors,
+.mab-wysija-msg .allmsgs .error{ margin: 10px 0; padding: 8px 8px 8px 30px; background: #FFD9C8 url('images/small-error.jpg') no-repeat 2% 50%; color: #000; text-shadow: none; border: 1px solid #F0BAA2; display: block; }

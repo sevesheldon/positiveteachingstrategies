@@ -1,0 +1,54 @@
+/*
+   easy-styles.css
+   easy-sign-up
+   
+   Created by Rew Rixom on 2011-03-29.
+*/
+
+/* Options admin */
+.wrap a{text-decoration:none;}
+.wrap a:hover{text-decoration:underline;}
+ 	#easy_sign_up_form_table{ }
+	#easy_sign_up_form_table th{
+		border-right:1px #FCFCFC solid;
+	}
+	.css-f-l{ float:left; } 
+	.css-f-r{float: right;}
+	br.css-c-f {clear:both;display:block;height:1px;margin:-1px 0 0 0;}
+	.css-m-l-10{margin-left:10px;}
+	.ui-1-2{ width:48%;}
+	.ui-1-3{ width:30%; }
+	.ui-1-4{ width:24%; }
+	.ui-2-3{ width:66%; }
+	.css-p-4{padding:4px;} 
+	.css-p-10{padding:10px;}
+	.css-p-20{padding:20px;}
+	h2#easy_sign_up_header{
+		height:80px;	width:100%; min-width:462px; overflow:hidden; text-indent:-800px; margin:25px auto 0;
+		background:transparent url('../images/easy-sign-up-logo-v2.png') 0 0 no-repeat;
+	}
+	#poststuff { padding: 11px 10px; }
+	#poststuff h3, #easy-help h3 {cursor: default;}
+	#easy-donate {border: 2px solid Green/*#FCE48F*/;background: #FCF9ED;}
+	#easy-donate h3 {color: Green/*#DD673C*/;font-size: 105%;}
+	#easy-donate form {margin: 0 auto; width: 150px; }
+	#hire-green,#easy-feed, #easy-pro { background:url('../images/gvw-clouds-2.png') no-repeat scroll right 80px #F1FAFF; }
+	#hire-green ul { background-color: #F1FAFF;width:180px;padding:4px;}
+	#hire-green ul li strong {font-size: 125%;font-weight: bolder;}
+	#easy-help code{border:#DDF3FF 4px solid; background-color: #F1FAFF; line-height:2em;display:inline-block;}
+	#easy-feed{}
+	ul#easy-rss li{background:transparent url('../images/icon.png') no-repeat scroll 0 0;padding-left:24px;}
+
+	#message.updated {background-color:#D2E8A0; border-color:#A0C845;box-shadow:inset 0 0 10px #A0C845; color:#4A6B00;}
+	
+	div.esu-extra-info-box{ 
+	  border: 1px solid #999; margin: 5px; 
+	  background-color: #fff; width: 274px;
+	  float: left;padding: 10px; text-align: center;
+	  border-radius:4px;	-moz-border-radius:4px;	-webkit-border-radius:4px;
+	  -moz-box-shadow: 3px 3px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 3px 3px rgba(0,0,0,0.2);
+    box-shadow: 3px 3px rgba(0,0,0,0.2);
+	  }
+	div.esu-extra-info-box img{ border: 1px solid #999; background-color: #fff; padding:4px;}
+	div.esu-extra-info-box p,div.esu-extra-info-box h4{text-align: left;margin:5px 0;}

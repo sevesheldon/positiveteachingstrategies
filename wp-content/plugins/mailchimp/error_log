@@ -1,0 +1,1 @@
+[22-Jun-2015 00:34:11 America/Chicago] PHP Fatal error:  Call to undefined function plugins_url() in /home3/ayreskat/public_html/wp-content/plugins/mailchimp/mailchimp.php on line 1479

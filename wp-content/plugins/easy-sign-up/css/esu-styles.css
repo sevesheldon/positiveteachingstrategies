@@ -1,0 +1,60 @@
+/*
+   esu-styles.css
+   easy-sign-up
+   
+   Created by Rew Rixom on 2011-04-04.
+		ID's have underscores "_"
+		Classes have dashes "-"
+*/
+/*Widget styles*/
+form#w_esu_widget input[type='text']{
+	float: right;
+}
+form#w_esu_widget label{
+  display:inline-block  !important;
+}
+form#w_esu_widget em{
+	color: Red !important;
+}
+form#w_esu_widget > div {
+    padding: 2px;
+}
+/*Short code generated form */
+.esu-form-table em{
+	color:red !important;
+	padding-right:5px !important;
+}
+.esu-required-text{
+	font-size:80% !important;
+	color:red !important; 
+}
+.esu_send_bnt{ border:none!important;}
+/*Error CSS*/
+.easy-sign-up-err{
+	background-color: #FFDFDF !important;
+	color:#B51845 !important;
+	padding:4px !important;
+	display: none;
+	width: auto  !important;
+}
+.esu-error{
+  background-color: #FFDFDF !important;
+	color:#B51845 !important;
+}
+.esu-good{
+  background-color: #DFFFEC !important;
+}
+/*Form Table*/
+table.esu-form-table, table.esu-form-table td{
+  border:none !important;
+  padding:0px !important;
+  margin:0px !important;
+}
+table.esu-form-table input[type='text']{
+  margin:4px !important;
+}
+table.esu-form-table th{
+  margin:0px !important;
+  padding:0 !important;
+}
+table.esu-form-table {width: auto !important;}
